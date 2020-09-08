@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  db:
+    container_name: db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "daarWASeenseenmeisjel00s"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+      
+volumes:
+  sqlserver-data:
