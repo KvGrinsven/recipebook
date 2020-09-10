@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		Repository b = new Repository();
 		
-		Recipe yum = new Recipe("pancake");
+		Recipe yum = new Recipe("pineapple");
 		
 		b.save(yum);
 	}

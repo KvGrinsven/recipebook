@@ -24,5 +24,9 @@ public class Repository {
 		session.close();
 
 	}
+	
+	public String getRecipe() {
+		return "Schil de aardappels en kook ze 10 minuten.";
+	}
 
 }
