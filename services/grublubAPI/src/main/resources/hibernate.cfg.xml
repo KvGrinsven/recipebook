@@ -24,6 +24,7 @@
 		<property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
 
 		<mapping class="com.grublub.model.Recipe" />
+		<mapping class="com.grublub.model.Ingredient" />
 	</session-factory>
 	
 </hibernate-configuration>
