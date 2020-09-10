@@ -1,4 +1,4 @@
-package com.grublub.persistence;
+package com.grublub.model;
 
 import javax.persistence.*;
 
