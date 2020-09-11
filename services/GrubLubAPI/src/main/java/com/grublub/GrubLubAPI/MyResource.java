@@ -23,7 +23,8 @@ public class MyResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
-    	Recipe r = new Recipe("pancake");
+    	Recipe r = new Recipe("banana pancake");
         return r.getName();
     }
+
 }
