@@ -24,7 +24,7 @@ public class MyResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
     	Recipe r = new Recipe("banana pancake");
-        return r.getName();
+        return r.getName(); 
     }
 
 }
