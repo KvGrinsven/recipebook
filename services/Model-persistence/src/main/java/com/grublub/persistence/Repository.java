@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.grublub.model.Recipe;
+
 public class Repository {
 	
 	private SessionFactory sf;
@@ -25,8 +27,16 @@ public class Repository {
 
 	}
 	
-	public String getRecipe() {
-		return "Schil de aardappels en kook ze 10 minuten.";
+	public Recipe getRecipe(int id) {
+		Session session = sf.openSession();
+		session.beginTransaction();
+		
+		Recipe rec = session.get(Recipe.class, id);
+		
+		session.getTransaction().commit();
+		session.close();
+		
+		return rec;
 	}
 
 }
