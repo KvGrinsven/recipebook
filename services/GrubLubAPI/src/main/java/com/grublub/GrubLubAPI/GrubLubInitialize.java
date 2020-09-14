@@ -1,5 +1,7 @@
 package com.grublub.GrubLubAPI;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.GET;
@@ -9,6 +11,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.grublub.model.Recipe;
 import com.grublub.model.RecipeBook;
 
 @Path("init")
@@ -26,10 +29,8 @@ public class GrubLubInitialize {
     	HttpSession session= request.getSession(true);
 		RecipeBook rb = new RecipeBook();
 		session.setAttribute("recipebook", rb);
-		
-		String test = rb.getRecipe(1).getName();
 		        
-        return Response.status(200).entity(test).build();
+        return Response.status(200).entity(rb.getAllRecipes()).build();
     }
 
 }

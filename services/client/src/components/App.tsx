@@ -19,7 +19,10 @@ export class App extends React.Component<any, any> {
     console.log(this.state);
 
     return <div>
-      <h1>{this.state.recipe}</h1>
+      <h1>Recipes</h1>
+      <ul>
+        <li>{this.state.recipe}</li>
+      </ul>
     </div>
   }
 }
