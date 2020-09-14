@@ -10,7 +10,7 @@ public class Recipe {
 	@GeneratedValue
 	int id;
 	
-	@Column(name = "name")
+	@Column(name = "recipe_name")
 	String name;
 	
 	public Recipe(String name) {

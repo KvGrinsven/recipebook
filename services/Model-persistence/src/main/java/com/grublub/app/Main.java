@@ -1,13 +1,15 @@
 package com.grublub.app;
 
+import com.grublub.model.Recipe;
 import com.grublub.persistence.Repository;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Repository b = new Repository();
+		Repository r = new Repository();
+		Recipe rec = new Recipe("Pancakes");
 		
-		System.out.println(b.getRecipe(1).getName());
+		r.save(rec);
 	}
 
 }
