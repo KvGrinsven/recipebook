@@ -10,7 +10,7 @@ export class App extends React.Component<any, any> {
   }
 
   componentDidMount() {
-    fetch('grublub/webapi/myresource')
+    fetch('grublub/webapi/init')
       .then(response => response.text())
       .then(recipe => this.setState({ recipe }));
   }
