@@ -6,14 +6,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.grublub.model.Recipe;
-import com.grublub.persistence.Repository;
 
-
-/**
- * Root resource (exposed at "myresource" path)
- */
-@Path("myresource")
-public class MyResource {
+@Path("init")
+public class GrubLubInitialize {
     /**
      * Method handling HTTP GET requests. The returned object will be sent
      * to the client as "text/plain" media type.
