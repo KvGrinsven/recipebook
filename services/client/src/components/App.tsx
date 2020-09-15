@@ -21,8 +21,8 @@ export class App extends React.Component<any, any> {
     return <div>
       <h1>Recipes</h1>
       <ul>
-        {this.state.recipes.map((item:any, index:any) => (
-          <li key={index}>{item.name}</li>
+        {this.state.recipes.map((item:any) => (
+          <li key={item.id}>{item.name}</li>
         ))}
       </ul>
     </div>

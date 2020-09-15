@@ -8,10 +8,10 @@ public class Recipe {
 	
 	@Id
 	@GeneratedValue
-	int id;
+	private int id;
 	
 	@Column(name = "recipe_name")
-	String name;
+	private String name;
 	
 	public Recipe(String name) {
 		this.name = name;
@@ -20,7 +20,11 @@ public class Recipe {
 	public Recipe() {}
 	
 	public String getName() {
-		return name;
+		return this.name;
+	}
+	
+	public int getId() {
+		return this.id;
 	}
 
 }
