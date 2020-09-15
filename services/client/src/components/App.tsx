@@ -5,14 +5,14 @@ export class App extends React.Component<any, any> {
     super(props);
 
     this.state = {
-      recipe: "",
+      recipes: [],
     }
   }
 
   componentDidMount() {
     fetch('grublub/webapi/init')
-      .then(response => response.text())
-      .then(recipe => this.setState({ recipe }));
+      .then(response => response.json())
+      .then(recipes => this.setState({ recipes }));
   }
 
   public render(): JSX.Element {
@@ -21,7 +21,9 @@ export class App extends React.Component<any, any> {
     return <div>
       <h1>Recipes</h1>
       <ul>
-        <li>{this.state.recipe}</li>
+        {this.state.recipes.map((item:any, index:any) => (
+          <li key={index}>{item.name}</li>
+        ))}
       </ul>
     </div>
   }
