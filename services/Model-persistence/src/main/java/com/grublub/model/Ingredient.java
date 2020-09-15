@@ -7,11 +7,33 @@ import javax.persistence.*;
 public class Ingredient {
 	
 	@Id
-	@Column(name = "name")
-	String name;
+	@GeneratedValue
+	private int id;
+
+	@Column(name = "description")
+	private String description;
 	
-	public Ingredient(String name) {
-		this.name = name;
+	@Enumerated(EnumType.STRING)
+	@Column(name = "measure")
+	private Measure measure;
+	
+	public Ingredient() { }
+	
+	public Ingredient(String description, Measure measure) {
+		this.description = description;
+		this.measure = measure;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public Measure getMeasure() {
+		return measure;
 	}
 
 }

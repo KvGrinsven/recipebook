@@ -10,17 +10,17 @@ public class Recipe {
 	@GeneratedValue
 	private int id;
 	
-	@Column(name = "recipe_name")
-	private String name;
+	@Column(name = "title")
+	private String title;
 	
-	public Recipe(String name) {
-		this.name = name;
+	public Recipe(String title) {
+		this.title = title;
 	}
 	
 	public Recipe() {}
 	
-	public String getName() {
-		return this.name;
+	public String getTitle() {
+		return this.title;
 	}
 	
 	public int getId() {
