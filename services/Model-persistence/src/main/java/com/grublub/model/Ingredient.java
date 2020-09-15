@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity(name = "Ingredient")
 @Table(name = "ingredient")
+@Embeddable
 public class Ingredient {
 	
 	@Id
@@ -34,6 +35,31 @@ public class Ingredient {
 
 	public Measure getMeasure() {
 		return measure;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if(o == null || getClass() != o.getClass()) return false;
+		
+		Ingredient ingredient = (Ingredient) o;
+		
+		if(!description.equals(ingredient.getDescription())) return false;
+		if(!(measure == ingredient.getMeasure())) return false;
+		
+		return true;
+	}
+	
+	@Override
+	public int hashCode() {
+		int result = description.hashCode();
+		result *= 31;
+		return result;
+	}
+	
+	@Override
+	public String toString() {
+		return description;
 	}
 
 }
