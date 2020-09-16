@@ -17,7 +17,7 @@ public class Main {
 		
 		Map<Ingredient, Double> ingredients = new HashMap<Ingredient, Double>();
 		ingredients.put(i, 500D);
-		Recipe r = new Recipe("Tomatensoep", ingredients);
+		Recipe r = new Recipe("Tomatensoep", ingredients, "Kook de tomaten.", 4);
 		
 		rep.save(i);
 		rep.save(r);

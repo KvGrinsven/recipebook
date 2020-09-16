@@ -34,9 +34,11 @@ public class Recipe {
 	
 	public Recipe() {}
 	
-	public Recipe(String title, Map<Ingredient, Double> ingredients) {
+	public Recipe(String title, Map<Ingredient, Double> ingredients, String directions, int servings) {
 		this.title = title;
 		this.ingredients = ingredients;
+		this.directions = directions;
+		this.servings = servings;
 	}
 	
 	public String getTitle() {
@@ -48,7 +50,15 @@ public class Recipe {
 	}
 	
 	public Map<Ingredient, Double> getIngredients() {
-		return ingredients;
+		return this.ingredients;
+	}
+	
+	public String getDirections() {
+		return this.directions;
+	}
+	
+	public int getServings() {
+		return this.servings;
 	}
 	
 	@Override

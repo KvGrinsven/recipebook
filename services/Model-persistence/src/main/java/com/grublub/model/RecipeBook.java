@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.grublub.persistence.Repository;
 
-//This is intended as a facade.
-
 public class RecipeBook {
 	
 	Repository r = new Repository();
