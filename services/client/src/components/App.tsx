@@ -1,5 +1,6 @@
 import * as React from "react";
 import { RecipeList } from "./RecipeList";
+import { Recipe } from "./Recipe";
 
 export class App extends React.Component<any, any> {
   constructor(props: {}) {
@@ -17,8 +18,12 @@ export class App extends React.Component<any, any> {
   }
 
   public render(): JSX.Element {
-    console.log(this.state);
+    console.log(this.state.recipes[0]);
 
-    return <RecipeList recipes={this.state.recipes}/>
+
+    return <div>
+      <RecipeList recipes={this.state.recipes}/>
+      <Recipe recipe={this.state.recipes[0]}/>
+    </div>
   }
 }
