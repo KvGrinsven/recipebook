@@ -28,6 +28,25 @@ export function App() {
         }
     }
 
+    async function select( id: number ) {
+      try {
+        const response = await fetch('grublub/webapi/browse', {
+          method: 'GET',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          const recipe: Recipe = await response.json();
+          setSelectedRecipe(recipe);
+        }
+      } catch (error) {
+          setErrorMessage(error.toString());
+      }
+    }
+
     useEffect(() => {
        getRecipes();
     }, []);
@@ -38,10 +57,10 @@ export function App() {
     // and then all the details for the recipe being desplayed when needed
     if(recipes) {
       return <div className="App">
-        <RecipeList recipes={recipes}/>
+        <RecipeList handleClick={select} recipes={recipes}/>
         {selectedRecipe &&
           <RecipePane recipe={selectedRecipe}/>
-        };
+        }
       </div>
     } else {
       return <div><h1>Loading...</h1></div>
