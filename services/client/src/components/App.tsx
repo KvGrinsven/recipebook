@@ -30,7 +30,8 @@ export function App() {
 
     async function select( id: number ) {
       try {
-        const response = await fetch('grublub/webapi/browse', {
+        const url = 'grublub/webapi/browse/' + id;
+        const response = await fetch(url, {
           method: 'GET',
           headers: {
               'Accept': 'application/json',
