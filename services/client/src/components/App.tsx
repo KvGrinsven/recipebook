@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { RecipeList } from "./RecipeList";
 import { RecipePane } from "./RecipePane";
+import { AddPane } from "./AddPane";
 import { Recipe } from "./Recipe";
 
 export function App() {
@@ -83,8 +84,9 @@ export function App() {
     if(recipes) {
       return <div className="App">
         <RecipeList recipeClick={select} addClick={deselect} recipes={recipes}/>
-        {selectedRecipe &&
-            <RecipePane handleClick={selectWithServings} recipe={selectedRecipe}/>
+        {selectedRecipe
+            ? <RecipePane handleClick={selectWithServings} recipe={selectedRecipe}/>
+            : <AddPane />
         }
       </div>
     } else {
