@@ -48,6 +48,25 @@ export function App() {
       }
     }
 
+    async function selectWithServings( id: number, servings: number) {
+      try {
+        const url = 'grublub/webapi/browse/' + id + '/' + servings;
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          const recipe: Recipe = await response.json();
+          setSelectedRecipe(recipe);
+        }
+      } catch (error) {
+          setErrorMessage(error.toString());
+      }
+    }
 
     useEffect(() => {
        getRecipes();
@@ -61,7 +80,7 @@ export function App() {
       return <div className="App">
         <RecipeList handleClick={select} recipes={recipes}/>
         {selectedRecipe &&
-          <RecipePane recipe={selectedRecipe}/>
+            <RecipePane handleClick={selectWithServings} recipe={selectedRecipe}/>
         }
       </div>
     } else {

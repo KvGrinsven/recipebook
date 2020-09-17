@@ -66,4 +66,16 @@ public class Recipe {
 		return title;
 	}
 
+	public void ofServings(int desiredServings) {
+		
+		double ratio = desiredServings / (double) this.servings;
+		
+		for(Ingredient i : ingredients.keySet()) {
+			double amount = ingredients.get(i);
+			amount *= ratio;
+			ingredients.put(i, amount);
+		}
+		
+		this.servings = desiredServings;
+	}
 }
