@@ -5,7 +5,12 @@ export function RecipePane({recipe}: any) {
     return <div className="Recipe">
         <h1>{recipe.title}</h1>
 
-        <p>Servings: {recipe.servings}</p>
+        <div>
+          Servings:
+          <button className="ServingsButton" >-</button>
+          {recipe.servings}
+          <button className="ServingsButton">+</button>
+        </div>
 
         <p>Ingredients:</p>
         <ul>
