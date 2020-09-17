@@ -1,11 +1,20 @@
 import React from "react";
+import { Recipe } from "./Recipe";
 
-export function RecipePane({ recipe }: any) {
-    if(recipe) {
-      return <div className="Recipe">
+export function RecipePane({recipe}: any) {
+    return <div className="Recipe">
         <h1>{recipe.title}</h1>
-      </div>
-    } else {
-      return <div/>
-    }
+
+        <p>Servings: {recipe.servings}</p>
+
+        <p>Ingredients:</p>
+        <ul>
+          {Object.entries(recipe.ingredients).map(ing =>
+              <li>{ing[0]}: {ing[1]}</li>
+          )}
+        </ul>
+
+        <p>{recipe.directions }</p>
+
+    </div>
 }
