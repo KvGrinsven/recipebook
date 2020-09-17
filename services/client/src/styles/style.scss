@@ -4,14 +4,17 @@ body {
   line-height: 1.3rem;
 }
 
-p {
-  color: green;
-  float: right;
-  display: inline;
+.App {
+  display:flex;
+  flex-direction: row;
 }
 
 .RecipeList {
-  float: left;
-  display: inline;
+  display: block;
+  width: 50%;
+}
+
+.RecipePane {
+  display: block;
   width: 50%;
 }

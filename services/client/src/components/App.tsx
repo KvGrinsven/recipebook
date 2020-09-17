@@ -36,7 +36,7 @@ export function App() {
     // during initialization... Only recipe titles will do for the list,
     // and then all the details for the recipe being desplayed when needed
     if(recipes) {
-      return <div>
+      return <div className="App">
         <RecipeList recipes={recipes}/>
         <RecipePane recipe={recipes[0]}/>
       </div>
