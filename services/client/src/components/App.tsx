@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { RecipeList } from "./RecipeList";
+import { RecipePane } from "./RecipePane";
 import { Recipe } from "./Recipe";
 
 export function App() {
 
-    const [ recipes, setRecipes ] = useState(undefined);
+    const [ recipes, setRecipes ] = useState< Recipe[] | undefined>(undefined);
     const [ errorMessage, setErrorMessage ] = useState("");
 
     async function getRecipes() {
@@ -18,7 +19,7 @@ export function App() {
           });
 
           if (response.ok) {
-            const recipes = await response.json();
+            const recipes: Recipe[] = await response.json();
             setRecipes(recipes);
           }
         } catch (error) {
@@ -30,13 +31,16 @@ export function App() {
        getRecipes();
     }, []);
 
-
+    console.log(recipes)
+    // TODO Loading should be a lot faster if I don't try to get all info
+    // during initialization... Only recipe titles will do for the list,
+    // and then all the details for the recipe being desplayed when needed
     if(recipes) {
       return <div>
         <RecipeList recipes={recipes}/>
-        <Recipe recipe={recipes[0]}/>
+        <RecipePane recipe={recipes[0]}/>
       </div>
     } else {
-      return <div><h1>No recipes!</h1></div>
+      return <div><h1>Loading...</h1></div>
     }
 }
