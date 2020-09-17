@@ -28,6 +28,10 @@ export function App() {
         }
     }
 
+    async function deselect() {
+      setSelectedRecipe(undefined);
+    }
+
     async function select( id: number ) {
       try {
         const url = 'grublub/webapi/browse/' + id;
@@ -78,7 +82,7 @@ export function App() {
     // and then all the details for the recipe being desplayed when needed
     if(recipes) {
       return <div className="App">
-        <RecipeList handleClick={select} recipes={recipes}/>
+        <RecipeList recipeClick={select} addClick={deselect} recipes={recipes}/>
         {selectedRecipe &&
             <RecipePane handleClick={selectWithServings} recipe={selectedRecipe}/>
         }
