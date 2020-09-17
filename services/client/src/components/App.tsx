@@ -7,6 +7,7 @@ export function App() {
 
     const [ recipes, setRecipes ] = useState< Recipe[] | undefined>(undefined);
     const [ errorMessage, setErrorMessage ] = useState("");
+    const [ selectedRecipe, setSelectedRecipe ] = useState< Recipe | undefined>(undefined);
 
     async function getRecipes() {
         try {
@@ -38,7 +39,9 @@ export function App() {
     if(recipes) {
       return <div className="App">
         <RecipeList recipes={recipes}/>
-        <RecipePane recipe={recipes[0]}/>
+        {selectedRecipe &&
+          <RecipePane recipe={selectedRecipe}/>
+        };
       </div>
     } else {
       return <div><h1>Loading...</h1></div>

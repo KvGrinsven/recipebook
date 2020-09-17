@@ -13,12 +13,8 @@ import com.grublub.persistence.Repository;
 
 @Path("init")
 public class GrubLubInitialize {
-    /**
-     * Method handling HTTP GET requests. The returned object will be sent
-     * to the client as "text/plain" media type.
-     *
-     * @return String that will be returned as a text/plain response.
-     */
+
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response initialize(@Context HttpServletRequest request) {
@@ -26,7 +22,7 @@ public class GrubLubInitialize {
     	HttpSession session= request.getSession(true);
 		Repository repo = new Repository();
 		session.setAttribute("repository", repo);
-		        
+		
         return Response.status(200).entity(repo.getAllRecipes()).build();
     }
 
