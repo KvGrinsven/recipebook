@@ -2,6 +2,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.3rem;
+  background-color: #f4ecc1;
 }
 
 .App {
@@ -17,4 +18,24 @@ body {
 .RecipePane {
   display: block;
   width: 50%;
+}
+
+button {
+    background: transparent;
+    width: 90%;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 15px 25px;
+    text-align: left;
+    display:inline-block;
+    outline:none;
+    position:relative;
+}
+
+button:hover {
+  border: 2px solid #f7cf85;
 }

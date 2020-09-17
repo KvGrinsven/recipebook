@@ -10,11 +10,11 @@ export function RecipePane({recipe}: any) {
         <p>Ingredients:</p>
         <ul>
           {Object.entries(recipe.ingredients).map(ing =>
-              <li>{ing[0]}: {ing[1]}</li>
+              <li key={ing[0]}>{ing[0]}: {ing[1]}</li>
           )}
         </ul>
 
-        <p>{recipe.directions }</p>
+        <p>{recipe.directions}</p>
 
     </div>
 }
