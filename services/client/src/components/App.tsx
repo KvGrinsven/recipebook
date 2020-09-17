@@ -1,29 +1,42 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { RecipeList } from "./RecipeList";
 import { Recipe } from "./Recipe";
 
-export class App extends React.Component<any, any> {
-  constructor(props: {}) {
-    super(props);
+export function App() {
 
-    this.state = {
-      recipes: [],
+    const [ recipes, setRecipes ] = useState(undefined);
+    const [ errorMessage, setErrorMessage ] = useState("");
+
+    async function getRecipes() {
+        try {
+          const response = await fetch('grublub/webapi/init', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+          });
+
+          if (response.ok) {
+            const recipes = await response.json();
+            setRecipes(recipes);
+          }
+        } catch (error) {
+            setErrorMessage(error.toString());
+        }
     }
-  }
 
-  componentDidMount() {
-    fetch('grublub/webapi/init')
-      .then(response => response.json())
-      .then(recipes => this.setState({ recipes }));
-  }
-
-  public render(): JSX.Element {
-    console.log(this.state.recipes[0]);
+    useEffect(() => {
+       getRecipes();
+    }, []);
 
 
-    return <div>
-      <RecipeList recipes={this.state.recipes}/>
-      <Recipe recipe={this.state.recipes[0]}/>
-    </div>
-  }
+    if(recipes) {
+      return <div>
+        <RecipeList recipes={recipes}/>
+        <Recipe recipe={recipes[0]}/>
+      </div>
+    } else {
+      return <div><h1>No recipes!</h1></div>
+    }
 }
