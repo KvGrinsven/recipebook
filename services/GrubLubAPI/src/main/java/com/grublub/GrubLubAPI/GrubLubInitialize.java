@@ -9,7 +9,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.grublub.model.RecipeBook;
+import com.grublub.persistence.Repository;
 
 @Path("init")
 public class GrubLubInitialize {
@@ -24,10 +24,10 @@ public class GrubLubInitialize {
     public Response initialize(@Context HttpServletRequest request) {
     	
     	HttpSession session= request.getSession(true);
-		RecipeBook rb = new RecipeBook();
-		session.setAttribute("recipebook", rb);
+		Repository repo = new Repository();
+		session.setAttribute("repository", repo);
 		        
-        return Response.status(200).entity(rb.getAllRecipes()).build();
+        return Response.status(200).entity(repo.getAllRecipes()).build();
     }
 
 }
