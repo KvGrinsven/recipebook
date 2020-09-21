@@ -7,23 +7,23 @@ export function AddPane() {
     <form>
 
       <label htmlFor="title">Title:</label><br/>
-      <input type="text" name="title"/><br/>
+      <input type="text" name="title" autoComplete="off"/><br/>
 
       <label htmlFor="servings">Servings:</label><br/>
-      <input type="number" name="servings"/><br/>
+      <input type="number" name="servings" autoComplete="off"/><br/>
 
       <label htmlFor="ingredients">Ingredients:</label><br/>
-      <input list="ingredients" name="ingredients"/>
+      <input list="ingredients" name="ingredients" autoComplete="off"/>
       <datalist id="ingredients">
+        <option value="Carrot"/>
         <option value="Potato"/>
         <option value="Tomato"/>
         <option value="Egg"/>
         <option value="Flower"/>
-        <option value="Carrot"/>
       </datalist><br/>
 
       <label htmlFor="directions">Directions:</label><br/>
-      <input type="text" name="directions" /><br/>
+      <input type="text" name="directions" autoComplete="off"/><br/>
 
       <br/>
       <input type="submit" value="Save"/>
