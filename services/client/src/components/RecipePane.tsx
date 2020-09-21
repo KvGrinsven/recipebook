@@ -17,7 +17,8 @@ export function RecipePane({recipe, handleClick}: any) {
         <ul>
           {Object.entries(recipe.ingredients).map( ([ing, amount]) => {
               const ingredient = JSON.parse(ing);
-              return <li key={ingredient.id}>{ingredient.description}: {amount} {ingredient.measure}</li>;
+              // TODO This turned into a monster. Refactor.
+              return <li key={ingredient.id}>{ingredient.description}: {amount} {ingredient.measure=='UNIT'?'':ingredient.measure.toLowerCase()} </li>;
         })}
         </ul>
 
