@@ -2,6 +2,7 @@ import React from "react";
 import { Recipe } from "./Recipe";
 
 export function RecipePane({recipe, handleClick}: any) {
+
     return <div className="Recipe">
         <h1>{recipe.title}</h1>
 
@@ -14,9 +15,10 @@ export function RecipePane({recipe, handleClick}: any) {
 
         <p>Ingredients:</p>
         <ul>
-          {Object.entries(recipe.ingredients).map(ing =>
-              <li key={ing[0]}>{ing[0]}: {ing[1]}</li>
-          )}
+          {Object.entries(recipe.ingredients).map( ([ing, amount]) => {
+              const ingredient = JSON.parse(ing);
+              return <li key={ingredient.id}>{ingredient.description}: {amount} {ingredient.measure}</li>;
+        })}
         </ul>
 
         <p>{recipe.directions}</p>
