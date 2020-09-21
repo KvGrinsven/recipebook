@@ -1,6 +1,16 @@
 package com.grublub.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Entity(name = "Ingredient")
 @Table(name = "ingredient")
@@ -59,7 +69,11 @@ public class Ingredient {
 	
 	@Override
 	public String toString() {
-		return description;
+		try {
+			return new ObjectMapper().writeValueAsString(this);
+		} catch (JsonProcessingException e) {
+			return "Oops!";
+		}
 	}
 
 }
