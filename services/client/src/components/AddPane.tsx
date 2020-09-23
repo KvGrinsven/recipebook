@@ -4,26 +4,34 @@ export function AddPane() {
 
   return <div className="AddPane">
     <h1>New recipe</h1>
-    <form>
+    <form className="AddForm">
 
       <label htmlFor="title">Title:</label><br/>
-      <input type="text" name="title" autoComplete="off"/><br/>
+      <input type="text" name="title" autoComplete="off" required/><br/>
 
       <label htmlFor="servings">Servings:</label><br/>
-      <input type="number" name="servings" autoComplete="off"/><br/>
+      <input type="number" name="servings" autoComplete="off" required/><br/>
 
-      <label htmlFor="ingredients">Ingredients:</label><br/>
-      <input list="ingredients" name="ingredients" autoComplete="off"/>
-      <datalist id="ingredients">
-        <option value="Carrot"/>
-        <option value="Potato"/>
-        <option value="Tomato"/>
-        <option value="Egg"/>
-        <option value="Flower"/>
-      </datalist><br/>
+      <table>
+        <tr>
+          <th>Ingredient</th>
+          <th>Amount</th>
+          <th>Measure</th>
+        </tr>
+        <tr>
+          <th>
+            <select required>
+              <option value="" disabled selected hidden>Choose an ingredient</option>
+            </select>
+          </th>
+          <th><input type="number" autoComplete="off" required/></th>
+          <th><label/></th>
+        </tr>
+      </table>
+      <button className="AddIngredientButton">+ Add ingredient</button><br/><br/>
 
       <label htmlFor="directions">Directions:</label><br/>
-      <input type="text" name="directions" autoComplete="off"/><br/>
+      <input type="text" name="directions" autoComplete="off" required/><br/>
 
       <br/>
       <input type="submit" value="Save"/>
